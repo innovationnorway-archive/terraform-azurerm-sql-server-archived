@@ -3,7 +3,7 @@
 ## Creates a SQL server w/ DB
 Terraform module for Azure where it creates a SQL server with initial database and Azure AD login. 
 
-A SQL server has to have a sql administator login, so this will be generated in the package. It generates a 32 character long random password for the login. This password is outputed and stored in the state file, so make sure your state file is secure. If this password needs to be fetched and used, we recomend you enable the keyvault functionallity. When providing a keyvault address the module automatically uploads the password as a secret. 
+A SQL server has to have a sql administator login, so this will be generated in the package. It generates a 32 character long random password for the login. This password is outputed and stored in the state file, so make sure your state file is secure. Read more about sensitive data in state here: https://www.terraform.io/docs/state/sensitive-data.html
 
 Installs following resources:
 - SQL Server
@@ -11,7 +11,6 @@ Installs following resources:
 - Active Directory Administrator
 
 Optionally installs following: 
-- Secret in a keyvault.
 - Firewall rule for azure ip ranges. 
 
 ## Usage
@@ -37,7 +36,6 @@ module "sql_server" {
 
   # SQL login admin
   admin_login_name = "super_awesome_admin_username"
-  key_vault_uri    = "https://example.vault.azure.net"
 
   # AAD login admin
   ad_admin_login_name = "cute-kitten-57"

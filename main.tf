@@ -1,11 +1,3 @@
-resource "azurerm_key_vault_secret" "sql" {
-  count = "${var.key_vault_uri != "" ? 1 : 0 }"
-
-  name      = "sql-server-password"
-  value     = "${random_string.password.result}"
-  vault_uri = "${var.key_vault_uri}"
-}
-
 resource "azurerm_sql_server" "sql_server" {
   name                         = "${var.server_name}-${var.environment}-sql"
   resource_group_name          = "${var.resource_group_name}"
