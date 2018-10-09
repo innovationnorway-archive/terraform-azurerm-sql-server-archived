@@ -25,11 +25,6 @@ variable "admin_login_name" {
   description = "Login name for the sql server administrator. If not set the default login name will be 'kitten83'."
 }
 
-variable "key_vault_uri" {
-  default     = ""
-  description = "Uri for a key vault where the module can store the sql server password. If left blank the password will not be saved automatically. "
-}
-
 variable "allow_azure_ip_access" {
   default     = "false"
   description = "If azure ip ranges should be allowed through the sql server firewall."
