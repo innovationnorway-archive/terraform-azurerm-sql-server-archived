@@ -42,6 +42,12 @@ module "sql_server" {
   ad_admin_tenant_id  = "2b25609c-e6e8-4f24-b7be-aa9fdef90a2d"
   ad_admin_object_id  = "18821d6f-adbe-4d4d-97ca-71a56f70e392"
 
+  # Scaling
+  database_edition                          = "Standard"
+  database_requested_service_objective_name = "S3"
+
+  database_collation = "SQL_LATIN1_GENERAL_CP1_CI_AS"
+
   tags {
       a       = "b",
       project = "weather-logs"

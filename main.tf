@@ -31,6 +31,10 @@ resource "azurerm_sql_database" "sql_database" {
   location            = "${var.location}"
   server_name         = "${azurerm_sql_server.sql_server.name}"
 
+  collation                        = "${var.database_collation}"
+  edition                          = "${var.database_edition}"
+  requested_service_objective_name = "${var.database_requested_service_objective_name}"
+
   tags = "${merge(var.tags, map("environment", var.environment), map("release", var.release))}"
 }
 
