@@ -20,6 +20,21 @@ variable "database_name" {
   description = "Name on the initial database on the server. "
 }
 
+variable "database_collation" {
+  default = "SQL_LATIN1_GENERAL_CP1_CI_AS"
+  description = "Which collation the initial database should have."
+}
+
+variable "database_edition" {
+  default = "Standard"
+  description = "Which database scaling edition the database should have."
+}
+
+variable "database_requested_service_objective_name" {
+  default = "S1"
+  description = "Which service scaling objective the database should have."
+}
+
 variable "admin_login_name" {
   default     = "kitten83"
   description = "Login name for the sql server administrator. If not set the default login name will be 'kitten83'."
