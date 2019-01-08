@@ -39,10 +39,10 @@ resource "azurerm_sql_database" "sql_database" {
 }
 
 
-resource "azurerm_management_lock" "resource-lock" {
+resource "azurerm_management_lock" "resource-CanNotDelete-lock" {
   count = "${var.lock_database_resource == true ? 1 : 0 }"
 
-  name       = "sql-database-lock"
+  name       = "sql-database-CanNotDelete-lock"
   scope      = "${azurerm_sql_database.sql_database.id}"
   lock_level = "CanNotDelete"
   notes      = "Locked due to holding critical data."
