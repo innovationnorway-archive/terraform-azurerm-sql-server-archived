@@ -69,3 +69,8 @@ variable "release" {
   default     = ""
   description = "The release the deploy is based on."
 }
+
+variable "lock_database_resource" {
+  default     = "false"
+  description = "Param defining whether to set CanNotDelete lock on the database resource upon DB creation. Possible input values is 'true' and 'false'."
+}
