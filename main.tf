@@ -38,8 +38,21 @@ resource "azurerm_sql_database" "sql_database" {
   tags = "${merge(var.tags, map("environment", var.environment), map("release", var.release))}"
 }
 
+
+resource "azurerm_management_lock" "resource-lock" {
+  count = "${var.lock_resources == true ? 1 : 0 }"
+
+  name       = "sql-database-lock"
+  scope      = "${azurerm_sql_database.sql_database.id}"
+  lock_level = "CanNotDelete"
+  notes      = "Locked due to holding critical data."
+}
+
+
 resource "random_string" "password" {
   length           = 32
   special          = true
   override_special = "/@\" "
 }
+
+

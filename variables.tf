@@ -69,3 +69,8 @@ variable "release" {
   default     = ""
   description = "The release the deploy is based on."
 }
+
+variable "lock_resources" {
+  default     = "false"
+  description = "Param defining whether to lock or not the resourse. Possible input values is 'true' and 'false'."
+}
