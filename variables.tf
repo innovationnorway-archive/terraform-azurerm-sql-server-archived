@@ -70,7 +70,7 @@ variable "release" {
   description = "The release the deploy is based on."
 }
 
-variable "lock_resources" {
+variable "lock_database_resource" {
   default     = "false"
-  description = "Param defining whether to lock or not the resourse. Possible input values is 'true' and 'false'."
+  description = "Param defining whether to lock or not the database resourse upon DB creation. Possible input values is 'true' and 'false'."
 }

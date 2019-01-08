@@ -40,7 +40,7 @@ resource "azurerm_sql_database" "sql_database" {
 
 
 resource "azurerm_management_lock" "resource-lock" {
-  count = "${var.lock_resources == true ? 1 : 0 }"
+  count = "${var.lock_database_resource == true ? 1 : 0 }"
 
   name       = "sql-database-lock"
   scope      = "${azurerm_sql_database.sql_database.id}"
